@@ -66,6 +66,8 @@ namespace Iris {
 
         template <typename T>
         void set_alpha(T a) { _alpha = std::clamp(static_cast<int>(a), 0, 255); }
+
+        [[nodiscard]] std::string toString() const;
     };
 }
 

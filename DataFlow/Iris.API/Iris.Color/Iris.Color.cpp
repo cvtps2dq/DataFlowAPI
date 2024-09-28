@@ -1,11 +1,10 @@
 #include "Iris.Color.h"
 
 #include <array>
+#include <string>
 #include <__algorithm/clamp.h>
 
 namespace Iris {
-
-    // Arithmetic operations
 
     Color Color::operator+(const Color &other) const {
         return {
@@ -89,5 +88,13 @@ namespace Iris {
             curColor[1] + (input[1] - curColor[1]) * ratio,
             curColor[2] + (input[2] - curColor[2]) * ratio
         );
+    }
+
+    std::string Color::toString() const {
+        return "red: " + std::to_string(this->_red) + ";"
+        + " green: " + std::to_string(this->_green) + ";"
+        + " blue: " + std::to_string(this->_blue) + ";"
+        + " alpha: " + std::to_string(this->_alpha);
+
     }
 }
