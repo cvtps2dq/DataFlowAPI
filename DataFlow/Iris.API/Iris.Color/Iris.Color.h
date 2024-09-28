@@ -6,7 +6,6 @@
 
 namespace Iris {
     class Color {
-    private:
         int _red;
         int _green;
         int _blue;
@@ -38,6 +37,10 @@ namespace Iris {
         Color &operator*=(double scale);
         Color operator/(double scale) const;
         Color &operator/=(double scale);
+
+        [[nodiscard]] std::array<double, 3> normalize() const;
+
+        Color *Interpolate(Color &other, double ratio);
 
         template <typename T = int>
         [[nodiscard]] T red() const { return static_cast<T>(_red); }
